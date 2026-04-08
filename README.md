@@ -17,252 +17,332 @@
 
   <br />
 
-  > **This is a functional prototype** built for academic purposes at Kean University.
-  > It demonstrates AI-powered career tools for students and employers.
-  > Use any email/password to sign in (no real authentication).
+  <table>
+    <tr>
+      <td align="center"><strong>This is a functional prototype</strong> built for academic purposes at Kean University.<br/>It demonstrates AI-powered career tools for students and employers.<br/>Use any email/password to sign in (no real authentication).</td>
+    </tr>
+  </table>
 
   <br />
 </div>
 
 ---
 
-## Landing Page
+<details open>
+<summary><h2>Landing Page</h2></summary>
 
-Interactive Three.js globe with animated city connections. Two clear paths: Students and Employers. Real Kean University branding, campus imagery, and student testimonials.
+Interactive Three.js globe with animated city connections and floating particles. Two clear entry points for Students and Employers. Features real Kean University branding, campus imagery, and student testimonials.
 
 <p align="center">
-  <img src="public/screenshots/Screenshot_2026-04-07_at_11_19_39_PM.png" alt="Landing Page" width="100%" />
+  <img src="./public/screenshots/Screenshot_2026-04-07_at_11_19_39_PM.png" alt="Landing Page" width="100%" />
 </p>
 
 <p align="center">
-  <img src="public/screenshots/Screenshot_2026-04-07_at_11_19_31_PM.png" alt="Globe Animation" width="100%" />
+  <img src="./public/screenshots/Screenshot_2026-04-07_at_11_19_31_PM.png" alt="Globe Close-up" width="100%" />
 </p>
 
-### Campus Showcase and Features
-
-Kean University campus with animated Ken Burns effect. Three core pillars: Resume Intelligence, Career Matching, and Employer Portal.
-
-<p align="center">
-  <img src="public/screenshots/Screenshot_2026-04-07_at_11_20_21_PM.png" alt="Campus and Features" width="100%" />
-</p>
-
-### Student Testimonials
-
-Real feedback from Kean University students who tested the prototype.
-
-<p align="center">
-  <img src="public/screenshots/Screenshot_2026-04-07_at_11_20_34_PM.png" alt="Student Testimonials" width="100%" />
-</p>
+</details>
 
 ---
 
-## Student Sign In
+<details open>
+<summary><h2>Campus Showcase and Features</h2></summary>
 
-Split-screen layout with Kean campus imagery on the left and a clean login form on the right. Responsive on mobile.
+Kean University GLAB building with animated Ken Burns zoom effect. University stats and three core platform pillars: Resume Intelligence, Career Matching, and Employer Portal.
 
 <p align="center">
-  <img src="public/screenshots/Screenshot_2026-04-07_at_11_21_35_PM.png" alt="Student Login" width="100%" />
+  <img src="./public/screenshots/Screenshot_2026-04-07_at_11_20_21_PM.png" alt="Campus and Features" width="100%" />
 </p>
+
+</details>
 
 ---
 
-## Student Dashboard
+<details open>
+<summary><h2>Student Testimonials</h2></summary>
 
-Personalized home screen with time-based greeting, progress tracker, animated SVG score ring, rotating feedback carousel, inline AI Q&A, skills display, career tips, and job search resource links.
+Real feedback from Kean University students who tested the prototype during usability evaluation.
 
 <p align="center">
-  <img src="public/screenshots/Screenshot_2026-04-07_at_11_28_38_PM.png" alt="Student Dashboard" width="100%" />
+  <img src="./public/screenshots/Screenshot_2026-04-07_at_11_20_34_PM.png" alt="Student Testimonials" width="100%" />
 </p>
+
+</details>
 
 ---
 
-## Onboarding
+<details open>
+<summary><h2>Student Sign In</h2></summary>
 
-Step 1 of 5. Students select their major, pick skills from categorized lists, and choose career interests. All data saved locally and pre-filled on return visits.
+Split-screen layout with Kean campus photo, animated floating seal, and a clean login form. Collapses to single column on mobile devices.
 
 <p align="center">
-  <img src="public/screenshots/Screenshot_2026-04-07_at_11_22_07_PM.png" alt="Onboarding" width="100%" />
+  <img src="./public/screenshots/Screenshot_2026-04-07_at_11_21_35_PM.png" alt="Student Login" width="100%" />
 </p>
+
+</details>
 
 ---
 
-## Resume Upload
+<details open>
+<summary><h2>Student Dashboard</h2></summary>
 
-Supports PDF, DOCX, DOC, and TXT file uploads or direct text paste. Character count and file validation built in.
+Personalized home screen with time-based greeting, 5-step progress tracker, animated SVG score ring, auto-rotating feedback carousel (strengths, keywords, improvements), inline AI Q&A, skills display, career tips with dot navigation, and external job search links.
 
 <p align="center">
-  <img src="public/screenshots/Screenshot_2026-04-07_at_11_26_11_PM.png" alt="Resume Upload" width="100%" />
+  <img src="./public/screenshots/Screenshot_2026-04-07_at_11_28_38_PM.png" alt="Student Dashboard" width="100%" />
 </p>
+
+</details>
 
 ---
 
-## AI Resume Analysis
+<details open>
+<summary><h2>Onboarding</h2></summary>
 
-Real-time AI analysis powered by Llama 3.3 70B via Groq. Five-step progress indicator with elapsed timer and rotating resume tips while the AI works. Not hardcoded — every analysis is unique to the uploaded resume.
+Step 1 of 5. Students select their major from a dropdown, pick skills from searchable categorized lists (Programming, Business, Design, etc.), and choose career interests. All answers saved locally and pre-filled on return visits.
 
 <p align="center">
-  <img src="public/screenshots/Screenshot_2026-04-07_at_11_26_26_PM.png" alt="AI Analysis" width="100%" />
+  <img src="./public/screenshots/Screenshot_2026-04-07_at_11_22_07_PM.png" alt="Onboarding" width="100%" />
 </p>
+
+</details>
 
 ---
 
-## AI Feedback
+<details open>
+<summary><h2>Resume Upload</h2></summary>
 
-Detailed results including overall score (out of 100), letter grade, category breakdown across 5 dimensions, strengths with specific resume references, and bullet point improvements with concrete rewrite suggestions.
+Supports PDF, DOCX, DOC, and TXT file drag-and-drop or click-to-browse. Also offers a Paste Text tab for direct copy-paste. Character count and format validation included.
 
 <p align="center">
-  <img src="public/screenshots/Screenshot_2026-04-07_at_11_28_03_PM.png" alt="AI Feedback" width="100%" />
+  <img src="./public/screenshots/Screenshot_2026-04-07_at_11_26_11_PM.png" alt="Resume Upload" width="100%" />
 </p>
+
+</details>
 
 ---
 
-## Career Center — AI Recommendations
+<details open>
+<summary><h2>AI Resume Analysis</h2></summary>
 
-AI generates 6 personalized career paths ranked by match score. Each career shows salary range, demand level, skills breakdown, growth path, and direct job search links to LinkedIn, Indeed, and Handshake. Students can regenerate for fresh results.
+Real-time AI analysis powered by Llama 3.3 70B via Groq. Five-step animated progress indicator with elapsed timer and rotating resume tips while the AI reads every line. Not hardcoded. Every analysis is unique to the uploaded resume.
 
 <p align="center">
-  <img src="public/screenshots/Screenshot_2026-04-07_at_11_27_04_PM.png" alt="AI Career Recommendations" width="100%" />
+  <img src="./public/screenshots/Screenshot_2026-04-07_at_11_26_26_PM.png" alt="AI Analysis" width="100%" />
 </p>
+
+</details>
 
 ---
 
-## Career Center — Career Fair Employers
+<details open>
+<summary><h2>AI Feedback</h2></summary>
 
-Real companies recruiting Kean students. Each employer card expands to show: Apply Now (links to real careers page), Schedule Interview, Send Resume, AI-generated preparation tips, and AI-generated interview questions.
+Detailed AI-generated results: overall score out of 100, letter grade, 5-category breakdown (Completeness, Keywords, Formatting, Achievements, Best Practices), strengths referencing actual resume content, and weak bullet rewrites with 3 concrete alternatives each.
 
 <p align="center">
-  <img src="public/screenshots/Screenshot_2026-04-07_at_11_27_15_PM.png" alt="Career Fair Employers" width="100%" />
+  <img src="./public/screenshots/Screenshot_2026-04-07_at_11_28_03_PM.png" alt="AI Feedback" width="100%" />
 </p>
+
+</details>
 
 ---
 
-## AI Assistant
+<details open>
+<summary><h2>Career Center: AI Recommendations</h2></summary>
 
-Full chat interface with streaming responses. The AI knows the student's profile, major, skills, and resume — giving personalized advice. Also answers general questions (math, homework, life advice). Includes quick action prompts, undo, and clear chat.
+AI generates 6 personalized career paths ranked by match score. Each card shows salary range, market demand level, a personalized explanation of fit, and expands to reveal: skills you have (green), skills to learn (amber), day-in-life description, growth path, and direct job search links to LinkedIn, Indeed, and Handshake. Hit Regenerate for fresh results anytime.
 
 <p align="center">
-  <img src="public/screenshots/Screenshot_2026-04-07_at_11_28_27_PM.png" alt="AI Assistant" width="100%" />
+  <img src="./public/screenshots/Screenshot_2026-04-07_at_11_27_04_PM.png" alt="AI Career Recommendations" width="100%" />
 </p>
+
+</details>
 
 ---
 
-## Employer Portal
+<details open>
+<summary><h2>Career Center: Career Fair Employers</h2></summary>
 
-Dedicated section for employers with its own landing page, sign in, and dashboard. Emerald green theme to visually separate from the student blue side. Features: post positions, browse candidates, analytics, and a four-step hiring flow.
+Real companies actively recruiting Kean University students. Each employer card expands to reveal: Apply Now (links to real careers page), Schedule Interview, Send Resume, and two AI-powered features: Preparation Tips and Interview Questions, both generated on-demand by AI specific to that company and role.
 
 <p align="center">
-  <img src="public/screenshots/Screenshot_2026-04-07_at_11_21_21_PM.png" alt="Employer Portal" width="100%" />
+  <img src="./public/screenshots/Screenshot_2026-04-07_at_11_27_15_PM.png" alt="Career Fair Employers" width="100%" />
 </p>
+
+</details>
 
 ---
 
-## Features
+<details open>
+<summary><h2>AI Assistant</h2></summary>
+
+Full chat interface with real-time streaming responses. The AI knows the student's profile, major, skills, and resume content, giving specific personalized advice instead of generic tips. Supports career questions, resume help, interview prep, and general questions (math, homework, etc.). Features: quick action prompts, undo last message, clear chat, and message timestamps.
+
+<p align="center">
+  <img src="./public/screenshots/Screenshot_2026-04-07_at_11_28_27_PM.png" alt="AI Assistant" width="100%" />
+</p>
+
+</details>
+
+---
+
+<details open>
+<summary><h2>Employer Portal</h2></summary>
+
+Dedicated section for employers with its own landing page, sign-in flow, and dashboard. Emerald green accent theme to visually separate from the student blue side. Features: four-step onboarding (Create Profile, Set Criteria, AI Matches, Connect and Hire), benefits showcase, and employer testimonials.
+
+<p align="center">
+  <img src="./public/screenshots/Screenshot_2026-04-07_at_11_21_21_PM.png" alt="Employer Portal" width="100%" />
+</p>
+
+</details>
+
+---
+
+## Features at a Glance
+
+<table>
+<tr>
+<td width="50%" valign="top">
 
 ### For Students
-| Feature | Description |
+| Feature | What it does |
 |---------|-------------|
-| AI Resume Analysis | Upload a resume and receive a score across 5 dimensions with specific improvement suggestions |
-| Bullet Rewrites | Weak bullets identified and rewritten with 3 alternatives using the STAR method |
-| Missing Keywords | AI identifies field-specific keywords missing from the resume |
-| Career Recommendations | 6 AI-generated career paths with salary data, growth paths, and match scores |
-| Job Search Links | Direct links to LinkedIn, Indeed, and Handshake for each career |
-| Career Fair Employers | Real companies with AI-generated interview prep and practice questions |
-| AI Assistant | Chat with an AI advisor that knows your profile and answers any question |
-| Dashboard | Progress tracker, score ring, feedback carousel, quick Q&A, and career tips |
+| **AI Resume Analysis** | Score across 5 dimensions with specific suggestions |
+| **Bullet Rewrites** | 3 STAR-method alternatives for each weak bullet |
+| **Missing Keywords** | Field-specific terms your resume is missing |
+| **Career Recommendations** | 6 AI-ranked paths with salary and demand data |
+| **Job Search Links** | Direct LinkedIn, Indeed, Handshake search links |
+| **Career Fair** | Real employers with AI interview prep |
+| **AI Assistant** | Chat that knows your profile and resume |
+| **Dashboard** | Score ring, feedback carousel, tips, Q&A |
+
+</td>
+<td width="50%" valign="top">
 
 ### For Employers
-| Feature | Description |
+| Feature | What it does |
 |---------|-------------|
-| Employer Portal | Dedicated landing, login, and dashboard with emerald branding |
-| Post Positions | Create internship, part-time, and full-time listings |
-| AI Matching | Students matched to employer criteria based on skills and interests |
+| **Employer Portal** | Dedicated landing, login, and dashboard |
+| **Post Positions** | Create internship and full-time listings |
+| **AI Matching** | Students matched by skills and interests |
+| **Analytics** | View applicant stats and engagement |
+
+### Tech Stack
+| | |
+|---|---|
+| **Frontend** | React 18, TypeScript, Tailwind CSS 4, Vite 6 |
+| **AI** | Llama 3.3 70B via Groq API |
+| **3D** | Three.js (globe animation) |
+| **Hosting** | Cloudflare Pages (free) |
+| **Storage** | localStorage (prototype) |
+
+</td>
+</tr>
+</table>
 
 ---
 
-## Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Frontend | React 18, TypeScript, Tailwind CSS 4 |
-| Build | Vite 6 |
-| AI | Llama 3.3 70B via Groq API |
-| 3D | Three.js |
-| Icons | Lucide React |
-| Hosting | Cloudflare Pages |
-| Storage | localStorage (prototype) |
-
----
-
-## Running Locally
+## Run It Locally
 
 ```bash
 git clone https://github.com/Brago475/AIEducator.git
 cd AIEducator
-
-# Create .env with your free Groq API key
 echo "VITE_GROQ_KEY=your_key_here" > .env
-
 npm install
 npm run dev
 ```
 
-Get a free API key at [console.groq.com](https://console.groq.com)
+Free Groq API key: [console.groq.com](https://console.groq.com)
 
 ---
 
 ## Prototype Limitations
 
-This is an academic prototype. For production use, the following would need to be addressed:
-
-- No backend — data stored in browser localStorage only
-- No real authentication — login is simulated
-- API key runs in the browser — would need a server proxy in production
-- Data does not persist across devices or browser clears
-- Career fair employers are a static list — would need a real management system
-- Interview requests and resume submissions are simulated
+<table>
+<tr><td>No backend</td><td>All data in browser localStorage</td></tr>
+<tr><td>No real auth</td><td>Login is simulated</td></tr>
+<tr><td>Client-side API key</td><td>Would need a server proxy for production</td></tr>
+<tr><td>No persistence</td><td>Data lost if browser storage is cleared</td></tr>
+<tr><td>Static employer list</td><td>Would need a real employer management system</td></tr>
+<tr><td>Simulated actions</td><td>Interview requests and resume sends are prototyped</td></tr>
+</table>
 
 ---
 
-## Student Feedback
+## What Students Said
 
-> *"The most helpful part of the prototype was the personalized career recommendations, as they made it easier to identify relevant job opportunities based on my skills and interests."*
-> — **Meeraben Patel**
+<table>
+<tr>
+<td width="33%">
 
-> *"I think the layout and presentation was nice. I could find everything I needed to with a maximum of 2 clicks."*
-> — **Brodie Berger**
+> *"The most helpful part was the personalized career recommendations, as they made it easier to identify relevant job opportunities."*
+>
+> **Meeraben Patel**
+
+</td>
+<td width="33%">
+
+> *"I could find everything I needed to with a maximum of 2 clicks."*
+>
+> **Brodie Berger**
+
+</td>
+<td width="33%">
 
 > *"The resume analyzer and career suggestions were the most helpful features."*
-> — **Iyadunni Adenuga**
+>
+> **Iyadunni Adenuga**
 
-> *"I liked the clean and intuitive interface. It reduces complexity and makes it easy for users to quickly find matches and schedule meetings without confusion."*
-> — **Meeraben Patel**
+</td>
+</tr>
+<tr>
+<td>
+
+> *"The clean and intuitive interface reduces complexity and makes it easy to quickly find matches."*
+>
+> **Meeraben Patel**
+
+</td>
+<td>
 
 > *"The Resume Analysis feature stood out as particularly useful."*
-> — **Md Jonayed Hossain Chowdhury**
+>
+> **Md Jonayed Hossain Chowdhury**
 
-> *"I like how it asks to insert your resume — it makes the process straightforward."*
-> — **Travis Matos**
+</td>
+<td>
 
-> *"The UI and UX were the most impressive parts of the prototype."*
-> — **Akhil Ageer**
+> *"I like how it asks to insert your resume. It makes the process straightforward."*
+>
+> **Travis Matos**
 
----
-
-## Author
-
-**James W. Mardi**
-M.S. Computer Science — Kean University (Expected May 2027)
-
-GitHub: [@Brago475](https://github.com/Brago475)
+</td>
+</tr>
+</table>
 
 ---
 
 <div align="center">
+
+## Author
+
+**James W. Mardi**
+
+M.S. Computer Science, Kean University (Expected May 2027)
+
+[![GitHub](https://img.shields.io/badge/GitHub-Brago475-181717?logo=github)](https://github.com/Brago475)
+
+---
+
   <img src="public/Images/kean-seal.png" alt="Kean" width="40" />
   <br />
-  <sub>Built for Kean University · Union, New Jersey · Est. 1855</sub>
+  <sub>Built for Kean University, Union, New Jersey, Est. 1855</sub>
   <br />
-  <sub>Academic prototype — not for commercial use</sub>
+  <sub>Academic prototype, not for commercial use</sub>
+
 </div>
   # Build functional website
 
