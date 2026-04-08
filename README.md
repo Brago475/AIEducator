@@ -74,7 +74,7 @@
 <td width="40%" valign="top">
 <br /><br />
 <h3>Built for Kean</h3>
-<p>Real campus imagery of the GLAB building with an animated Ken Burns zoom effect. The platform was designed specifically around Kean's 16,000+ students across 50+ degree programs.</p>
+<p>Real campus imagery of the GLAB building with an animated Kean Burns zoom effect. The platform was designed specifically around Kean's 16,000+ students across 50+ degree programs.</p>
 <p>Below the campus showcase, three pillars explain what the platform does: <strong>Resume Intelligence</strong>, <strong>Career Matching</strong>, and the <strong>Employer Portal</strong>.</p>
 </td>
 <td width="60%">
