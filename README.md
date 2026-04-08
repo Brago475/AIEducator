@@ -34,9 +34,9 @@
     </tr>
   </table>
 
-  <br />
-
 </div>
+
+<br />
 
 ---
 
@@ -53,40 +53,29 @@
 <br />
 
 <p align="center">
-  <img src="public/screenshots/screen3.png" alt="Landing Page" width="100%" />
+  <img src="public/screenshots/landing.gif" alt="Landing Animation" width="100%" />
 </p>
 
 <br />
 
-<p align="center">
-  <img src="public/screenshots/screen2.png" alt="Globe Animation" width="100%" />
-</p>
-
-<br />
-
----
-
-<br />
-
-<div align="center">
-
-  ## Campus and Community
-
-  <p>Real Kean campus imagery with Ken Burns animation. Student testimonials from prototype testing.</p>
-
-</div>
-
-<br />
-
-<p align="center">
-  <img src="public/screenshots/screen4.png" alt="Campus" width="100%" />
-</p>
-
-<br />
-
-<p align="center">
-  <img src="public/screenshots/screen5.png" alt="Testimonials" width="100%" />
-</p>
+<table>
+<tr>
+<td width="50%">
+<img src="public/screenshots/screen3.png" alt="Landing Full" width="100%" />
+</td>
+<td width="50%">
+<img src="public/screenshots/screen2.png" alt="Globe Close-up" width="100%" />
+</td>
+</tr>
+<tr>
+<td width="50%">
+<img src="public/screenshots/screen4.png" alt="Campus" width="100%" />
+</td>
+<td width="50%">
+<img src="public/screenshots/screen5.png" alt="Testimonials" width="100%" />
+</td>
+</tr>
+</table>
 
 <br />
 
@@ -104,73 +93,54 @@
 
 <br />
 
-### Sign In
-
-Split-screen layout with Kean campus imagery, animated floating seal, and a clean form. Responsive on mobile.
-
-<p align="center">
-  <img src="public/screenshots/screen7.png" alt="Login" width="90%" />
-</p>
-
-<br />
-
-### Build Your Profile
-
-Select your major, pick skills from searchable categorized lists, and choose career interests. Pre-filled on return visits.
-
-<p align="center">
-  <img src="public/screenshots/screen8.png" alt="Onboarding" width="90%" />
-</p>
+<table>
+<tr>
+<td width="50%">
+<img src="public/screenshots/screen7.png" alt="Login" width="100%" />
+</td>
+<td width="50%">
+<img src="public/screenshots/screen8.png" alt="Onboarding" width="100%" />
+</td>
+</tr>
+<tr>
+<td align="center"><strong>Sign In</strong><br/>Split-screen with Kean campus imagery and animated seal</td>
+<td align="center"><strong>Build Profile</strong><br/>Major, skills from categorized lists, career interests</td>
+</tr>
+</table>
 
 <br />
 
-### Upload Resume
-
-Drag-and-drop PDF, DOCX, DOC, or TXT. Or paste text directly. Character count and format validation.
-
-<p align="center">
-  <img src="public/screenshots/screen9.png" alt="Resume Upload" width="90%" />
-</p>
-
-<br />
-
-### AI Analyzes Your Resume
-
-Llama 3.3 70B reads every line. Animated progress steps, elapsed timer, and rotating tips. Every analysis is unique.
-
-<p align="center">
-  <img src="public/screenshots/screen10.png" alt="AI Analysis" width="90%" />
-</p>
+<table>
+<tr>
+<td width="50%">
+<img src="public/screenshots/screen9.png" alt="Resume Upload" width="100%" />
+</td>
+<td width="50%">
+<img src="public/screenshots/screen10.png" alt="AI Analysis" width="100%" />
+</td>
+</tr>
+<tr>
+<td align="center"><strong>Upload Resume</strong><br/>PDF, DOCX, DOC, TXT or paste text directly</td>
+<td align="center"><strong>AI Analysis</strong><br/>Llama 3.3 70B reads every line with live progress</td>
+</tr>
+</table>
 
 <br />
 
-### Get Real Feedback
-
-Score out of 100 across 5 dimensions. Strengths from your actual content. Weak bullets with 3 STAR-method rewrites.
-
-<p align="center">
-  <img src="public/screenshots/screen14.png" alt="AI Feedback" width="90%" />
-</p>
-
-<br />
-
----
-
-<br />
-
-<div align="center">
-
-  ## Student Dashboard
-
-  <p>Progress tracker, animated score ring, rotating feedback carousel, inline AI Q&A, skills display, career tips, and job search links.</p>
-
-</div>
-
-<br />
-
-<p align="center">
-  <img src="public/screenshots/screen16.png" alt="Dashboard" width="100%" />
-</p>
+<table>
+<tr>
+<td width="50%">
+<img src="public/screenshots/screen14.png" alt="AI Feedback" width="100%" />
+</td>
+<td width="50%">
+<img src="public/screenshots/screen16.png" alt="Dashboard" width="100%" />
+</td>
+</tr>
+<tr>
+<td align="center"><strong>AI Feedback</strong><br/>Score out of 100, 5 dimensions, bullet rewrites</td>
+<td align="center"><strong>Dashboard</strong><br/>Score ring, feedback carousel, quick AI Q&A, tips</td>
+</tr>
+</table>
 
 <br />
 
@@ -182,29 +152,26 @@ Score out of 100 across 5 dimensions. Strengths from your actual content. Weak b
 
   ## Career Center
 
-  <p>Two tabs: AI-generated career paths and real career fair employers.</p>
+  <p>AI-generated career paths and real career fair employers. Two tabs, one goal: get hired.</p>
 
 </div>
 
 <br />
 
-### AI Recommendations
-
-6 personalized career paths ranked by match score. Salary ranges, demand levels, skills breakdown, growth paths, and direct search links to LinkedIn, Indeed, and Handshake.
-
-<p align="center">
-  <img src="public/screenshots/screen11.png" alt="AI Careers" width="90%" />
-</p>
-
-<br />
-
-### Career Fair Employers
-
-Real companies recruiting at Kean: RWJBarnabas Health, Deloitte, NJ Transit, Amazon, Hackensack Meridian, KPMG. Each card has Apply Now, Schedule Interview, Send Resume, plus AI-generated prep tips and interview questions.
-
-<p align="center">
-  <img src="public/screenshots/screen13.png" alt="Career Fair" width="90%" />
-</p>
+<table>
+<tr>
+<td width="50%">
+<img src="public/screenshots/screen11.png" alt="AI Careers" width="100%" />
+</td>
+<td width="50%">
+<img src="public/screenshots/screen13.png" alt="Career Fair" width="100%" />
+</td>
+</tr>
+<tr>
+<td align="center"><strong>AI Recommendations</strong><br/>6 ranked paths with salary, demand, and job search links</td>
+<td align="center"><strong>Career Fair Employers</strong><br/>Real companies with AI prep tips and interview questions</td>
+</tr>
+</table>
 
 <br />
 
@@ -214,37 +181,28 @@ Real companies recruiting at Kean: RWJBarnabas Health, Deloitte, NJ Transit, Ama
 
 <div align="center">
 
-  ## AI Assistant
+  ## AI Assistant and Employer Portal
 
-  <p>Full chat with streaming responses. Knows your profile, major, skills, and resume. Gives specific advice. Also answers general questions.</p>
-
-</div>
-
-<br />
-
-<p align="center">
-  <img src="public/screenshots/screen15.png" alt="AI Chat" width="90%" />
-</p>
-
-<br />
-
----
-
-<br />
-
-<div align="center">
-
-  ## Employer Portal
-
-  <p>Dedicated section with emerald green branding. Landing page, sign-in, and dashboard with four-step hiring flow.</p>
+  <p>Chat with a personalized AI advisor. Employers get their own dedicated portal.</p>
 
 </div>
 
 <br />
 
-<p align="center">
-  <img src="public/screenshots/screen6.png" alt="Employer Portal" width="90%" />
-</p>
+<table>
+<tr>
+<td width="50%">
+<img src="public/screenshots/screen15.png" alt="AI Chat" width="100%" />
+</td>
+<td width="50%">
+<img src="public/screenshots/screen6.png" alt="Employer Portal" width="100%" />
+</td>
+</tr>
+<tr>
+<td align="center"><strong>AI Assistant</strong><br/>Streaming chat that knows your profile, resume, and goals</td>
+<td align="center"><strong>Employer Portal</strong><br/>Emerald-themed landing, login, and dashboard</td>
+</tr>
+</table>
 
 <br />
 
@@ -364,11 +322,7 @@ Applicant stats and engagement
 
   ## Tech Stack
 
-</div>
-
-<br />
-
-<div align="center">
+  <br />
 
   <img src="https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=white" />
   <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
