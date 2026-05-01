@@ -10,14 +10,15 @@ import {
 } from "lucide-react";
 import { loadAnalysisResult } from "../utils/resumeAnalyzer";
 import { createClient, hasKey } from "../utils/openaiClient";
+import { WelcomeWalkthrough } from "../components/WelcomeWalkthrough";
 
 const TIPS = [
-  { icon: <Target className="w-4 h-4" />, tip: "Use numbers in your bullet points — '20%' is stronger than 'significantly'.", category: "Resume" },
+  { icon: <Target className="w-4 h-4" />, tip: "Use numbers in your bullet points. '20%' is stronger than 'significantly'.", category: "Resume" },
   { icon: <FileText className="w-4 h-4" />, tip: "Keep your resume to one page unless you have 5+ years of experience.", category: "Resume" },
-  { icon: <Zap className="w-4 h-4" />, tip: "Mirror keywords from the job description — most companies use ATS filters.", category: "Strategy" },
+  { icon: <Zap className="w-4 h-4" />, tip: "Mirror keywords from the job description, since most companies use ATS filters.", category: "Strategy" },
   { icon: <Award className="w-4 h-4" />, tip: "Lead with your strongest experience, not chronological order.", category: "Resume" },
   { icon: <Clock className="w-4 h-4" />, tip: "Follow up within 48 hours of submitting an application.", category: "Job Search" },
-  { icon: <Briefcase className="w-4 h-4" />, tip: "Tailor your resume for each role — one version doesn't fit all.", category: "Strategy" },
+  { icon: <Briefcase className="w-4 h-4" />, tip: "Tailor your resume for each role. One version doesn't fit all.", category: "Strategy" },
   { icon: <Star className="w-4 h-4" />, tip: "Start bullets with action verbs: Led, Built, Designed, Increased, Reduced.", category: "Resume" },
   { icon: <BookOpen className="w-4 h-4" />, tip: "List relevant coursework if you lack work experience in that field.", category: "Resume" },
 ];
@@ -163,6 +164,7 @@ export default function Home() {
   const [quickQuestion, setQuickQuestion] = useState("");
   const [quickAnswer, setQuickAnswer] = useState("");
   const [askingAI, setAskingAI] = useState(false);
+  const [showWalkthrough, setShowWalkthrough] = useState(false);
   const questionRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -182,6 +184,10 @@ export default function Home() {
     setHasResume(!!localStorage.getItem("resumeContent"));
     const result = loadAnalysisResult();
     if (result) setAnalysisResult(result);
+
+    // Show the welcome walkthrough on the first authenticated visit
+    const seen = localStorage.getItem("walkthroughSeen");
+    if (!seen && session) setShowWalkthrough(true);
   }, []);
 
   useEffect(() => {
@@ -237,6 +243,13 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex flex-col">
       <style>{ANIM_STYLES}</style>
+
+      {showWalkthrough && (
+        <WelcomeWalkthrough
+          name={displayName.split(" ")[0]}
+          onClose={() => setShowWalkthrough(false)}
+        />
+      )}
 
       <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 px-6 py-4">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
