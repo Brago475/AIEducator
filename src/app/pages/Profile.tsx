@@ -2,11 +2,12 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router";
 import {
   User, GraduationCap, Code2, Target, Save, CheckCircle,
-  Plus, X, AlertTriangle, ChevronRight, RotateCcw, Info,
+  Plus, X, AlertTriangle, ChevronRight, Trash2, Info,
 } from "lucide-react";
 import { AppHeader } from "../components/AppHeader";
 import { SkillPicker } from "../components/SkillPicker";
 import { MAJORS, PRESET_INTERESTS } from "../data/profileData";
+import { clearAllUserData } from "../utils/dataPrivacy";
 
 function computeCompleteness(displayName: string, major: string, skills: string[], interests: string[]) {
   const checks = [
@@ -112,12 +113,16 @@ export default function Profile() {
     setTimeout(() => setSaved(false), 3000);
   };
 
+  // Wipes every piece of student data from the browser. AIEducator is an
+  // academic prototype tied to a Kean research study, so students must be
+  // able to clear their data fully at any time. After deletion, we send the
+  // student back to the landing page so the app starts cleanly.
   const handleReset = () => {
-    localStorage.removeItem("userProfile");
-    localStorage.removeItem("session");
+    clearAllUserData();
     setDisplayName(""); setEmail(""); setMajor(""); setSkills([]); setInterests([]);
     setShowReset(false);
     setSnapshot(JSON.stringify({ displayName: "", major: "", skills: [], interests: [] }));
+    navigate("/");
   };
 
   const customInterests = interests.filter((i) => !PRESET_INTERESTS.includes(i));
@@ -167,7 +172,7 @@ export default function Profile() {
                 pct >= 50 ? "bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-900" :
                             "bg-red-50 dark:bg-red-950 text-red-700 dark:text-red-400 border-red-200 dark:border-red-900"
               }`}>
-                {pct}% — {completenessLabel}
+                {pct}% · {completenessLabel}
               </span>
             </div>
             <div className="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-1.5 mb-4">
@@ -325,34 +330,45 @@ export default function Profile() {
             </button>
           </div>
 
-          {/* Danger zone */}
+          {/* Privacy & Data */}
           <div className="border border-red-200 dark:border-red-900 rounded-xl overflow-hidden">
             <div className="bg-red-50 dark:bg-red-950 px-6 py-4 border-b border-red-200 dark:border-red-900 flex items-center gap-2">
               <AlertTriangle className="w-4 h-4 text-red-500 dark:text-red-400" />
-              <span className="text-sm font-medium text-red-800 dark:text-red-300">Danger Zone</span>
+              <span className="text-sm font-medium text-red-800 dark:text-red-300">Privacy & Data</span>
             </div>
             <div className="px-6 py-5 bg-white dark:bg-gray-900">
               {!showReset ? (
                 <div className="flex items-center justify-between flex-wrap gap-3">
-                  <div>
-                    <p className="text-sm font-medium text-gray-900 dark:text-gray-100">Reset Profile</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Clears all saved data. This cannot be undone.</p>
+                  <div className="max-w-lg">
+                    <p className="text-sm font-medium text-gray-900 dark:text-gray-100">Delete My Data</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                      AIEducator does not store your data on a server. Your profile, resume, and AI feedback live only in this browser. Delete them at any time.
+                    </p>
                   </div>
                   <button onClick={() => setShowReset(true)}
                     className="px-4 py-2 text-sm font-medium border border-red-200 dark:border-red-900 text-red-600 dark:text-red-400 rounded-lg hover:bg-red-50 dark:hover:bg-red-950 transition-colors flex items-center gap-2">
-                    <RotateCcw className="w-3.5 h-3.5" /> Reset Profile
+                    <Trash2 className="w-3.5 h-3.5" /> Delete My Data
                   </button>
                 </div>
               ) : (
                 <div className="bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-900 rounded-lg p-4">
                   <p className="text-sm font-medium text-red-800 dark:text-red-300 mb-1">Are you sure?</p>
+                  <p className="text-xs text-red-700 dark:text-red-400 mb-2">
+                    This will permanently remove the following from your browser:
+                  </p>
+                  <ul className="text-xs text-red-700 dark:text-red-400 mb-4 space-y-1 list-disc list-inside">
+                    <li>Login session (your name and email)</li>
+                    <li>Profile (major, skills, interests)</li>
+                    <li>Uploaded resume text</li>
+                    <li>AI resume analysis and feedback</li>
+                  </ul>
                   <p className="text-xs text-red-700 dark:text-red-400 mb-4">
-                    This will delete your major, skills, interests, and login session. You'll need to log in again.
+                    You will be returned to the landing page. This cannot be undone.
                   </p>
                   <div className="flex gap-3">
                     <button onClick={handleReset}
-                      className="px-4 py-2 text-sm font-medium bg-red-600 dark:bg-red-500 text-white rounded-lg hover:bg-red-700 dark:hover:bg-red-600 transition-colors">
-                      Yes, Reset Everything
+                      className="px-4 py-2 text-sm font-medium bg-red-600 dark:bg-red-500 text-white rounded-lg hover:bg-red-700 dark:hover:bg-red-600 transition-colors flex items-center gap-2">
+                      <Trash2 className="w-3.5 h-3.5" /> Yes, Delete Everything
                     </button>
                     <button onClick={() => setShowReset(false)}
                       className="px-4 py-2 text-sm font-medium border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
