@@ -4,7 +4,7 @@ import * as THREE from "three";
 import {
   GraduationCap, ArrowRight, Sparkles,
   FileText, Cpu, Building2,
-  Sun, Moon, CheckCircle, Quote,
+  Sun, Moon, CheckCircle, Quote, Shield,
 } from "lucide-react";
 
 // ─── Three.js scene ──────────────────────────────────────────────────────────
@@ -230,7 +230,7 @@ const TESTIMONIALS = [
   { name: "Meeraben Patel", quote: "I liked the clean and intuitive interface of the prototype. It reduces complexity and makes it easy for users to quickly find matches and schedule meetings without confusion." },
   { name: "Iyadunni Adenuga", quote: "The resume analyzer and career suggestions were the most helpful features." },
   { name: "Md Jonayed Hossain Chowdhury", quote: "The Resume Analysis feature stood out as particularly useful." },
-  { name: "Travis Matos", quote: "I like how it asks to insert your resume — it makes the process straightforward." },
+  { name: "Travis Matos", quote: "I like how it asks to insert your resume. It makes the process straightforward." },
   { name: "Akhil Ageer", quote: "The UI and UX were the most impressive parts of the prototype." },
 ];
 
@@ -318,10 +318,10 @@ export default function Landing() {
           </h1>
 
           <p className="text-white/70 text-lg max-w-xl mx-auto mb-8 leading-relaxed fade-slide-up-d2">
-            AI-powered resume analysis, career matching, and employer connections.Built for Kean students.
+            AI-powered resume analysis, career matching, and employer connections. Built for Kean students.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-3 fade-slide-up-d2">
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-3 fade-slide-up-d2">
             <button onClick={() => navigate("/login")} className="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-4 rounded-xl text-base transition-all hover:scale-105 active:scale-100 flex items-center gap-2 shadow-lg shadow-blue-600/30">
               I'm a Student <ArrowRight className="w-5 h-5" />
             </button>
@@ -342,9 +342,9 @@ export default function Landing() {
       </section>
 
       {/* ── CAMPUS SHOWCASE ──────────────────────────────────────────────── */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900 overflow-hidden">
+      <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900 overflow-hidden">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-10 items-center">
+          <div className="grid md:grid-cols-2 gap-8 sm:gap-10 items-center">
             {/* Image with Ken Burns */}
             <div data-reveal className="relative rounded-2xl overflow-hidden shadow-2xl group">
               <img
@@ -393,9 +393,9 @@ export default function Landing() {
       </section>
 
       {/* ── THREE PILLARS ────────────────────────────────────────────────── */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16" data-reveal>
+          <div className="text-center mb-10 sm:mb-14 lg:mb-16" data-reveal>
             <h2 className="text-gray-900 dark:text-gray-100 mb-3" style={{ fontSize: "clamp(1.6rem, 4vw, 2.5rem)", fontWeight: 700 }}>
               One Platform, Two Sides
             </h2>
@@ -404,13 +404,13 @@ export default function Landing() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-5 sm:gap-6">
             {[
-              { icon: <FileText className="w-6 h-6" />, title: "Resume Intelligence", desc: "Upload your resume and get a detailed AI analysis with scores, rewrites, and missing keywords — specific to your field.", color: "blue" },
+              { icon: <FileText className="w-6 h-6" />, title: "Resume Intelligence", desc: "Upload your resume and get a detailed AI analysis with scores, rewrites, and missing keywords specific to your field.", color: "blue" },
               { icon: <Cpu className="w-6 h-6" />, title: "Career Matching", desc: "Discover career paths ranked by your skills, interests, and market demand. With salary data and growth projections.", color: "purple" },
               { icon: <Building2 className="w-6 h-6" />, title: "Employer Portal", desc: "Employers browse pre-matched student profiles, post opportunities, and connect with talent that fits.", color: "emerald" },
             ].map((item, i) => (
-              <div key={i} data-reveal style={{ transitionDelay: `${i * 100}ms` }} className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-8 hover:border-blue-300 dark:hover:border-blue-600 transition-all hover:shadow-lg">
+              <div key={i} data-reveal style={{ transitionDelay: `${i * 100}ms` }} className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 sm:p-8 hover:border-blue-300 dark:hover:border-blue-600 transition-all hover:shadow-lg">
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${
                   item.color === "blue" ? "bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400" :
                   item.color === "purple" ? "bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400" :
@@ -427,9 +427,9 @@ export default function Landing() {
       </section>
 
       {/* ── STUDENT TESTIMONIALS ─────────────────────────────────────────── */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14" data-reveal>
+          <div className="text-center mb-10 sm:mb-14" data-reveal>
             <h2 className="text-gray-900 dark:text-gray-100 mb-3" style={{ fontSize: "clamp(1.6rem, 4vw, 2.5rem)", fontWeight: 700 }}>
               What Kean Students Are Saying
             </h2>
@@ -458,8 +458,48 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* ── PRIVACY ──────────────────────────────────────────────────────── */}
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800">
+        <div className="max-w-3xl mx-auto" data-reveal>
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-900 flex items-center justify-center shrink-0">
+              <Shield className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+            </div>
+            <h2 className="text-gray-900 dark:text-gray-100" style={{ fontSize: "clamp(1.25rem, 3vw, 1.6rem)", fontWeight: 700 }}>
+              Your Privacy
+            </h2>
+          </div>
+          <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 sm:mb-8">
+            AIEducator is an academic prototype built for a research study at Kean University.
+            No student data is collected on a server. Everything you enter (your profile, resume, and AI feedback)
+            stays only in your own browser, and you can delete it at any time.
+          </p>
+
+          <div className="grid sm:grid-cols-3 gap-4 mb-6">
+            <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-5 sm:p-4">
+              <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Browser only</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">Your profile, resume, and AI feedback live in this browser. Nothing is saved on a Kean server.</p>
+            </div>
+            <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-5 sm:p-4">
+              <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1.5">No tracking</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">Your activity is not logged for the research study. The study uses a separate, voluntary survey.</p>
+            </div>
+            <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-5 sm:p-4">
+              <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Delete anytime</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">After signing in, open your Profile and tap "Delete My Data" to wipe everything from your browser.</p>
+            </div>
+          </div>
+
+          <p className="text-xs text-gray-500 dark:text-gray-500 leading-relaxed">
+            One exception: when you ask the AI to analyze your resume or answer a question, the text is sent to Groq's
+            AI service (Llama 3.3 70B) to generate the response. Groq does not store this data. See
+            {" "}<a href="https://groq.com/privacy-policy/" target="_blank" rel="noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">Groq's privacy policy</a> for details.
+          </p>
+        </div>
+      </section>
+
       {/* ── CTA ──────────────────────────────────────────────────────────── */}
-      <section className="py-20 px-4 bg-gray-950 relative overflow-hidden">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div className="w-96 h-96 rounded-full bg-blue-600/10 blur-3xl" />
         </div>
