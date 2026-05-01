@@ -8,6 +8,7 @@ import {
 import { AppHeader } from "../components/AppHeader";
 import { ApiKeyModal } from "../components/ApiKeyModal";
 import { createClient, hasKey, clearKey } from "../utils/openaiClient";
+import { loadAnalysisResult } from "../utils/resumeAnalyzer";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface Message {
@@ -19,8 +20,9 @@ interface Message {
 
 // ─── Build system prompt from user context ────────────────────────────────────
 function buildSystemPrompt(): string {
+  // Pull all student context from local storage
   let name = "Student", major = "", skills: string[] = [], interests: string[] = [];
-  let hasResume = false;
+  let resumeContent = "";
 
   try {
     const session = localStorage.getItem("session");
@@ -37,44 +39,73 @@ function buildSystemPrompt(): string {
     }
   } catch { /* ignore */ }
 
-  hasResume = !!localStorage.getItem("resumeContent");
+  resumeContent = localStorage.getItem("resumeContent") || "";
+  const analysis = loadAnalysisResult();
 
-  const steps = [
-    { label: "Onboarding profile complete",     done: !!(major && skills.length > 0 && interests.length > 0) },
-    { label: "Resume uploaded",                  done: hasResume },
-    { label: "Resume analyzed",                  done: !!localStorage.getItem("resumeAnalysisResult") },
+  // Truncate resume to keep prompt size reasonable (~5k chars stays well under context limits)
+  const resumeBlock = resumeContent
+    ? resumeContent.slice(0, 5000) + (resumeContent.length > 5000 ? "\n[... resume truncated ...]" : "")
+    : "(No resume uploaded yet.)";
+
+  // Summarize cached analysis if present
+  let analysisBlock = "(No analysis run yet.)";
+  if (analysis) {
+    const top = (arr: string[] | undefined, n = 3) =>
+      arr && arr.length ? arr.slice(0, n).map((s) => "  - " + s).join("\n") : "  (none)";
+    const weakBullets = analysis.weakBullets?.slice(0, 3).map((b) => "  - " + b.original).join("\n") || "  (none)";
+    const missing = analysis.missingKeywords?.slice(0, 5).map((k) => "  - " + k.keyword).join("\n") || "  (none)";
+    analysisBlock = `Score: ${analysis.score}/100 (${analysis.grade}, ${analysis.gradeLabel})
+Top strengths:
+${top(analysis.strengths)}
+Weak bullet points:
+${weakBullets}
+Missing keywords:
+${missing}`;
+  }
+
+  // Setup checklist for gentle nudges
+  const setupSteps = [
+    { label: "Profile filled out", done: !!(major && skills.length > 0 && interests.length > 0) },
+    { label: "Resume uploaded",    done: !!resumeContent },
+    { label: "Resume analyzed",    done: !!analysis },
   ];
+  const incomplete = setupSteps.filter((s) => !s.done).map((s) => "- " + s.label);
 
-  const incomplete = steps.filter((s) => !s.done).map((s) => `• ${s.label}`);
+  return `You are AIEducator, a career advisor for Kean University students in New Jersey.
+Your job is to give specific, accurate, grounded career advice based on the student's actual profile and resume.
 
-  return `You are AIEducator, an AI career assistant built exclusively for Kean University students in New Jersey.
+== STUDENT CONTEXT ==
+Name: ${name}
+Major: ${major || "(not yet selected)"}
+Skills: ${skills.length ? skills.join(", ") : "(none selected yet)"}
+Career interests: ${interests.length ? interests.join(", ") : "(none selected yet)"}
 
-STUDENT PROFILE:
-- Name: ${name}
-- Major: ${major || "Not set yet"}
-- Skills: ${skills.length > 0 ? skills.join(", ") : "None selected yet"}
-- Career interests: ${interests.length > 0 ? interests.join(", ") : "None selected yet"}
-- Resume uploaded: ${hasResume ? "Yes" : "No"}
+== STUDENT'S RESUME (verbatim) ==
+${resumeBlock}
 
-APP PROGRESS:
-${steps.map((s) => `${s.done ? "✅" : "❌"} ${s.label}`).join("\n")}
-${incomplete.length > 0 ? `\nSTILL NEEDS TO COMPLETE:\n${incomplete.join("\n")}` : "\nAll steps complete!"}
+== AI RESUME ANALYSIS (already generated) ==
+${analysisBlock}
 
-YOUR JOB:
-1. Be warm, friendly, and encouraging — like a supportive mentor who genuinely wants to see them succeed. Use their name naturally.
-2. Give SPECIFIC advice tied to this student's actual major (${major || "not yet set"}), skills, and interests.
-3. If they haven't completed a step above, gently encourage them (e.g., "By the way, once you add your major in your Profile, I can give you way better advice!").
-4. For resume questions, reference their specific background and celebrate what they're doing well before suggesting improvements.
-5. For career questions, be enthusiastic about the possibilities that match their interests.
-6. Keep replies conversational and easy to read — use short paragraphs, not walls of text. 3-5 key points max.
-7. Start responses with something personal or encouraging — never jump straight into a list.
-8. Use phrases like "Great question!", "That's a smart move", "I love that you're thinking about this" naturally.
-9. For NJ/NYC job market questions, be specific about companies and neighborhoods.
-10. If they seem unsure or anxious, reassure them — career planning is stressful and they're already ahead by using this tool.
+== SETUP STATUS ==
+${setupSteps.map((s) => `${s.done ? "[done]" : "[todo]"} ${s.label}`).join("\n")}
+${incomplete.length ? `\nIncomplete steps:\n${incomplete.join("\n")}` : ""}
 
-IMPORTANT: Never give generic, copy-paste advice. Every response must reference something specific about this student when the question is career-related. Be the career advisor they wish they had — knowledgeable, approachable, and always in their corner.
+== HOW TO ANSWER ==
+1. When the student asks about their resume, REFERENCE the actual content above. Quote real bullet points or section headers when relevant. Do not invent content that is not there.
+2. When the student asks about career paths, USE their actual major, skills, and interests. Do not give advice that ignores them.
+3. If a setup step is not done, point it out gently when relevant. Example: "Once you upload your resume I can give you specific bullet feedback."
+4. If you do not know a specific fact (a company's hiring policy, an exact salary, a specific NJ employer's status), say so. Do not invent specifics.
+5. Keep responses short and useful. 3-5 short paragraphs or 4-7 bullets, whichever fits the question. No filler. No "Great question!". Get to the substance.
+6. The student may also ask general questions (math, study tips, life advice). Answer briefly when you can, but be honest about uncertainty. Career and resume advice is your main job.
 
-ALSO: You are a helpful general assistant too. If the student asks general questions (math, science, homework, life advice, etc.), answer them helpfully and accurately. You're not limited to career topics only — think of yourself as a smart friend who happens to be a career expert. Help with whatever they need.`;
+== TONE ==
+Friendly, direct, practical. Like a slightly older mentor who has been through the job search recently. Never condescending. Never preachy. Use the student's name naturally but do not overuse it.
+
+== GROUNDING RULES ==
+- If the student's profile or resume contradicts what you would otherwise say, follow the student's data.
+- When citing salary ranges, hiring trends, or industry facts, mark them as approximate. Examples: "around $60-75k", "typically", "based on general data".
+- Never fabricate specific company hiring practices, recruiter names, or program details. If asked, recommend they check official sources: the company's careers page, Handshake, or Kean Career Services.
+- If the resume section above is empty, say so honestly instead of guessing what is in their resume.`;
 }
 
 // ─── Quick action prompts ─────────────────────────────────────────────────────
@@ -157,7 +188,7 @@ function MessageContent({ content }: { content: string }) {
 const INITIAL_MESSAGE: Message = {
   id: "1",
   role: "assistant",
-  content: "Hi! I'm AIEducator — your personal career assistant for Kean University. I know your profile, your skills, and your goals. Ask me anything about your resume, career paths, interviews, or what to learn next. I'll give you specific advice, not generic tips.",
+  content: "Hi! I'm AIEducator, your personal career assistant for Kean University. I know your profile, your skills, and your goals. Ask me anything about your resume, career paths, interviews, or what to learn next. I'll give you specific advice, not generic tips.",
   timestamp: new Date(),
 };
 
@@ -224,7 +255,7 @@ export default function AIAssistant() {
           ...history,
         ],
         stream: true,
-        temperature: 0.7,
+        temperature: 0.5,
         max_tokens: 800,
       });
 
